@@ -24,17 +24,17 @@
 
 #include "LedDeviceAdalight.h"
 #include "LedDeviceAmbiLed.h"
-#include "LedDeviceRawHID.h"
-#include "LedDeviceLightpack.h"
-#include "LedDeviceMultiLightpack.h"
-#include "LedDevicePaintpack.h"
+//#include "LedDeviceRawHID.h"
+// #include "LedDeviceLightpack.h"
+// #include "LedDeviceMultiLightpack.h"
+// #include "LedDevicePaintpack.h"
 #include "LedDevicePiBlaster.h"
 #include "LedDeviceSedu.h"
 #include "LedDeviceFile.h"
 #include "LedDeviceFadeCandy.h"
 #include "LedDeviceUdp.h"
 #include "LedDeviceUdpRaw.h"
-#include "LedDeviceHyperionUsbasp.h"
+// #include "LedDeviceHyperionUsbasp.h"
 #include "LedDevicePhilipsHue.h"
 #include "LedDeviceTpm2.h"
 #include "LedDeviceAtmo.h"
@@ -169,7 +169,7 @@ LedDevice * LedDeviceFactory::construct(const Json::Value & deviceConfig)
 		device = deviceTinkerforge;
 	}
 #endif
-	else if (type == "rawhid")
+/*	else if (type == "rawhid")
 	{
 		const int delay_ms        = deviceConfig["delayAfterConnect"].asInt();
 		auto VendorIdString       = deviceConfig.get("VID", "0x2341").asString();
@@ -215,7 +215,7 @@ LedDevice * LedDeviceFactory::construct(const Json::Value & deviceConfig)
 
 		device = devicePainLightpack;
 	}
-	else if (type == "piblaster")
+*/	else if (type == "piblaster")
 	{
 		const std::string output     = deviceConfig.get("output",     "").asString();
 		const std::string assignment = deviceConfig.get("assignment", "").asString();
@@ -245,18 +245,18 @@ LedDevice * LedDeviceFactory::construct(const Json::Value & deviceConfig)
 
 		device = deviceSedu;
 	}
-	else if (type == "hyperion-usbasp-ws2801")
-	{
-			LedDeviceHyperionUsbasp * deviceHyperionUsbasp = new LedDeviceHyperionUsbasp(LedDeviceHyperionUsbasp::CMD_WRITE_WS2801);
-			deviceHyperionUsbasp->open();
-			device = deviceHyperionUsbasp;
-	}
-	else if (type == "hyperion-usbasp-ws2812")
-	{
-			LedDeviceHyperionUsbasp * deviceHyperionUsbasp = new LedDeviceHyperionUsbasp(LedDeviceHyperionUsbasp::CMD_WRITE_WS2812);
-			deviceHyperionUsbasp->open();
-			device = deviceHyperionUsbasp;
-	}
+//	else if (type == "hyperion-usbasp-ws2801")
+//	{
+//			LedDeviceHyperionUsbasp * deviceHyperionUsbasp = new LedDeviceHyperionUsbasp(LedDeviceHyperionUsbasp::CMD_WRITE_WS2801);
+//			deviceHyperionUsbasp->open();
+//			device = deviceHyperionUsbasp;
+//	}
+//	else if (type == "hyperion-usbasp-ws2812")
+//	{
+//			LedDeviceHyperionUsbasp * deviceHyperionUsbasp = new LedDeviceHyperionUsbasp(LedDeviceHyperionUsbasp::CMD_WRITE_WS2812);
+//			deviceHyperionUsbasp->open();
+//			device = deviceHyperionUsbasp;
+//	}
 	else if (type == "philipshue")
 	{
 		const std::string output = deviceConfig["output"].asString();

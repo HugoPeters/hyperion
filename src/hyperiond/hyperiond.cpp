@@ -501,6 +501,7 @@ int main(int argc, char** argv)
 
 
 	startBootsequence(config, hyperion);
+	hyperion.setEffect("udp", 1, -1);
 
 	XBMCVideoChecker * xbmcVideoChecker = nullptr;
 	startXBMCVideoChecker(config, xbmcVideoChecker);

@@ -313,6 +313,7 @@ LedDevice * LedDeviceFactory::construct(const Json::Value & deviceConfig)
 	}
 	else if (type == "udp")
 	{
+		std::cout << "Using UDP device.." << std::endl;
 		const std::string output = deviceConfig["output"].asString();
 		const unsigned rate      = deviceConfig["rate"].asInt();
 		const unsigned protocol  = deviceConfig["protocol"].asInt();

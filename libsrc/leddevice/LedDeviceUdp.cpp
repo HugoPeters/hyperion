@@ -73,6 +73,8 @@ LedDeviceUdp::LedDeviceUdp(const std::string& output, const unsigned baudrate, c
 		fprintf(stderr, "talker: failed to create socket\n");
 		assert(p!=NULL);
 	}
+
+	printf("UDP socket opened @ %s : %s\n", hostname.c_str(), port.c_str());
 }
 
 LedDeviceUdp::~LedDeviceUdp()
